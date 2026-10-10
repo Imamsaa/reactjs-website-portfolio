@@ -1,5 +1,16 @@
+import { useState } from "react";
 import "./../styles/Navbar.css"
+import { FaBars } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
 function Navbar(){
+    const [statusTampil, setStatusTampil] = useState('');
+    function tampilMenu() {
+        if(statusTampil == ''){
+            setStatusTampil('tampil');
+        }else{
+            setStatusTampil('');
+        }
+    }
     return (
         <>
             <nav>
@@ -7,7 +18,12 @@ function Navbar(){
                     <div className="logo">
                         <a href="#">Imamsaa</a>
                     </div>
-                    <div className="menu">
+                    <button  onClick={
+                        tampilMenu
+                    }>
+                        {(statusTampil == 'tampil')?<IoMdClose />:<FaBars />}
+                    </button>
+                    <div className={`menu ${statusTampil}`} onClick={tampilMenu}>
                         <ul>
                             <li><a href="#portfolio">Portfolio</a></li>
                             <li><a href="#about">About</a></li>
