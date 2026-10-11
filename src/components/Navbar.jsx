@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./../styles/Navbar.css"
 import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
+import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 function Navbar(){
     const [statusTampil, setStatusTampil] = useState('');
     function tampilMenu() {
@@ -16,7 +18,7 @@ function Navbar(){
             <nav>
                 <div className="wrapper">
                     <div className="logo">
-                        <a href="#">Imamsaa</a>
+                        <Link to="/">Imamsaa</Link>
                     </div>
                     <button  onClick={
                         tampilMenu
@@ -25,9 +27,9 @@ function Navbar(){
                     </button>
                     <div className={`menu ${statusTampil}`} onClick={tampilMenu}>
                         <ul>
-                            <li><a href="#portfolio">Portfolio</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#experience">Experience</a></li>
+                            <li><HashLink to="/#portfolio">Portfolio</HashLink></li>
+                            <li><HashLink to="/#about">About</HashLink></li>
+                            <li><Link to="/experience">Experience</Link></li>
                         </ul>
                     </div>
                 </div>
